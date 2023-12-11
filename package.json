@@ -14,11 +14,13 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "deploy": "npm run build && node ./deploy/github"
   },
   "dependencies": {
     "@nehalist/gatsby-theme-nehalem": "^1.0.3",
     "gatsby": "^2.13.55",
+    "gh-pages": "^6.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }
