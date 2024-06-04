@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.a7e617cdee3c921eba03.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8292a2}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.32.13"/><title data-react-helmet="true">Hoisting - Long Nguyen&#x27;s Blog</title><meta data-react-helmet="true" name="description" content="Syntax parser là chương trình đọc những đoạn mã code mà ta viết ra, từng ký tự một, nó xác định xem cú pháp có hợp lệ hay không cũng như xác định code của ta có mục đích gì..."/><meta data-react-helmet="true" property="og:title" content="Hoisting - Long Nguyen&#x27;s Blog"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:description" content="Syntax parser là chương trình đọc những đoạn mã code mà ta viết ra, từng ký tự một, nó xác định xem cú pháp có hợp lệ hay không cũng như xác định code của ta có mục đích gì..."/><meta data-react-helmet="true" property="og:url" content="https://blog.techtop.dev/hoisting"/><meta data-react-helmet="true" name="twitter:label1" content="Written by"/><meta data-react-helmet="true" name="twitter:data1" content="Long Nguyễn"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Long Nguyễn"/><meta data-react-helmet="true" name="twitter:title" content="Hoisting - Long Nguyen&#x27;s Blog"/><meta data-react-helmet="true" name="twitter:description" content="Syntax parser là chương trình đọc những đoạn mã code mà ta viết ra, từng ký tự một, nó xác định xem cú pháp có hợp lệ hay không cũng như xác định code của ta có mục đích gì..."/><meta data-react-helmet="true" name="keywords" content="Javascript, Angular, Typescript, Machine learning, everyone, JavaScript"/><meta data-react-helmet="true" name="article:published_time" content="2024-06-03T00:00:00.000Z"/><meta data-react-helmet="true" name="article:modified_time" content="2024-06-03T00:00:00.000Z"/><meta data-react-helmet="true" name="twitter:label2" content="Filed under"/><meta data-react-helmet="true" name="twitter:data2" content="JavaScript"/><meta data-react-helmet="true" property="og:image" content="https://blog.techtop.dev/static/ceee1d12d3acf6ff04311d7dcc1bc789/f2cbb/cover.jpg"/><meta data-react-helmet="true" name="twitter:image" content="https://blog.techtop.dev/static/ceee1d12d3acf6ff04311d7dcc1bc789/f2cbb/cover.jpg"/><script data-react-helmet="true" type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Article",
+          "author": {
+            "@type": "Person",
+            "name": "Long Nguyễn"
+          },
+          "keywords": "JavaScript",
+          "headline": "Hoisting - Long Nguyen's Blog",
+          "url": "https://blog.techtop.dev/hoisting",
+          "datePublished": "2024-06-03T00:00:00.000Z",
+          "dateModified": "2024-06-03T00:00:00.000Z",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.techtop.dev/static/ceee1d12d3acf6ff04311d7dcc1bc789/f2cbb/cover.jpg",
+            "width": "1000",
+            "height": "520"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Long Nguyen's Blog"
+          },
+          "description": "Syntax parser là chương trình đọc những đoạn mã code mà ta viết ra, từng ký tự một, nó xác định xem cú pháp có hợp lệ hay không cũng như xác định code của ta có mục đích gì...",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://blog.techtop.dev"
+          }
+        }
+      </script><style data-styled="bzOPpS kHKWRw bhqfWL gOiyKu jLOYBk fVqyTA cROOCp gWrDHi MQpwo llwmof fYiJFa JoeLU gINVKO vNDEa gkyoqc lhFcmu knvKPj inPukj ihzMDK cxFkWP ccWeoH xRPUr bKAqcy cYqZmU bICWKm ghlSja jAnmWt fZmyke iHGPyz jrMnVP lfACiL lbetsi YZAaE hLhzMS gTEUyD gpDhwt ctpkkx etXHUJ dLTgSL fCazFg cXOFUh bqPxdl" data-styled-version="4.4.1">
+/* sc-component-id: sc-global-2089182736 */
+html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{display:block;} h1{font-size:2em;margin:0.67em 0;} hr{box-sizing:content-box;height:0;overflow:visible;} pre{font-family:monospace,monospace;font-size:1em;} a{background-color:transparent;} abbr[title]{border-bottom:none;-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted;} b,strong{font-weight:bolder;} code,kbd,samp{font-family:monospace,monospace;font-size:1em;} small{font-size:80%;} sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;} sub{bottom:-0.25em;} sup{top:-0.5em;} img{border-style:none;} button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;} button,input{overflow:visible;} button,select{text-transform:none;} button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button;} button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0;} button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText;} fieldset{padding:0.35em 0.75em 0.625em;} legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal;} progress{vertical-align:baseline;} textarea{overflow:auto;} [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0;} [type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto;} [type="search"]{-webkit-appearance:textfield;outline-offset:-2px;} [type="search"]::-webkit-search-decoration{-webkit-appearance:none;} ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit;} details{display:block;} summary{display:list-item;} template{display:none;} [hidden]{display:none;} html{box-sizing:border-box;background-color:#fafafa;} body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;line-height:1.9em;} *{box-sizing:border-box;} h1,h2,h3,h4,h5,h6{outline:none;} a{color:#000;-webkit-text-decoration:none;text-decoration:none;} .gatsby-highlight{max-width:100% !important;} .gatsby-highlight-code-line{background-color:#353631;display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:0.75em;}
+/* sc-component-id: style__NavContainer-sc-1ck1w82-0 */
+.bzOPpS{z-index:1000;background-color:#20232a;position:-webkit-sticky;position:sticky;top:0;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.07);}
+/* sc-component-id: style__Nav-sc-1ck1w82-1 */
+.kHKWRw{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;} @media (max-width:1300px){.kHKWRw{padding:0 20px;}}
+/* sc-component-id: style__NavWrapper-sc-1ck1w82-2 */
+.jLOYBk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;width:100%;height:70px;white-space:nowrap;} @media (max-width:576px){.jLOYBk{width:90%;}}
+/* sc-component-id: style__NavMenu-sc-1ck1w82-3 */
+.fVqyTA{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;list-style-type:none;margin:0;padding:0;} @media (max-width:576px){.fVqyTA{width:80%;overflow-x:auto;overflow-y:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 25px,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 25px,#000 90%,transparent);}}.cROOCp{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;list-style-type:none;margin:0;padding:0;}
+/* sc-component-id: style__NavMenuItem-sc-1ck1w82-4 */
+.gWrDHi{cursor:pointer;display:inline-block;border:0;background:transparent;outline:none;-webkit-text-decoration:none;text-decoration:none;}
+/* sc-component-id: style__NavLink-sc-1ck1w82-5 */
+.MQpwo{color:#fff;opacity:.8;padding:16px;-webkit-transition:opacity .5s;transition:opacity .5s;} .MQpwo:hover{opacity:1;}
+/* sc-component-id: style__SearchContainer-sc-1ck1w82-6 */
+.llwmof{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;position:relative;}
+/* sc-component-id: style__ToggleSearchButton-sc-1ck1w82-7 */
+.fYiJFa{cursor:pointer;color:#fff;opacity:.8;background:none;outline:none;border:0;-webkit-transition:opacity .5s;transition:opacity .5s;} .fYiJFa:hover{opacity:1;}
+/* sc-component-id: logo__LogoImage-sc-1e43uzs-0 */
+.gOiyKu{max-height:30px;width:30px;margin-right:45px;} @media (max-width:576px){.gOiyKu{margin-right:15px;}}
+/* sc-component-id: logo__HomeLink-sc-1e43uzs-1 */
+.bhqfWL{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;height:30px;}
+/* sc-component-id: style__StyledFooter-sc-1oqvjzu-0 */
+.gpDhwt{max-width:100%;padding:10px 0;z-index:700;position:relative;font-size:.9em;margin-top:50px;}
+/* sc-component-id: style__FooterContainer-sc-1oqvjzu-1 */
+.ctpkkx{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;text-align:right;line-height:1.1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;} @media (max-width:1300px){.ctpkkx{padding:0 20px;}}
+/* sc-component-id: style__Copyright-sc-1oqvjzu-2 */
+.cXOFUh{margin:0;}
+/* sc-component-id: style__DesignBy-sc-1oqvjzu-3 */
+.bqPxdl{margin:0;opacity:.8;font-size:.8em;} .bqPxdl a{font-weight:bold;-webkit-text-decoration:none;text-decoration:none;color:#000;} .bqPxdl a:hover{-webkit-text-decoration:underline;text-decoration:underline;}
+/* sc-component-id: style__StyledNav-sc-1oqvjzu-4 */
+.etXHUJ ul{list-style-type:none;margin:0;padding:0;} .etXHUJ li{display:inline-block;margin-right:25px;} .etXHUJ li:last-child{margin-right:0;}
+/* sc-component-id: style__FooterMenuItem-sc-1oqvjzu-5 */
+.fCazFg{color:#000;-webkit-text-decoration:none;text-decoration:none;}
+/* sc-component-id: style__FooterMenuLink-sc-1oqvjzu-6 */
+.dLTgSL{color:#000;-webkit-text-decoration:none;text-decoration:none;}
+/* sc-component-id: toc__StyledNav-sc-1hwup8p-0 */
+.lhFcmu .toc-list{list-style-type:none;margin:0;padding:0;} .lhFcmu .toc-list .toc-list{padding-left:17px;padding-top:10px;} .lhFcmu .toc-list-item{line-height:1.2em;padding-bottom:10px;} .lhFcmu .toc-list-item:last-child{padding-bottom:0;} .lhFcmu .toc-link{color:#808080;-webkit-text-decoration:none;text-decoration:none;} .lhFcmu .is-active-link{color:#404040;font-weight:700;}
+/* sc-component-id: reading-progress__ReadingProgressBar-sc-vxjjnv-0 */
+.JoeLU{position:-webkit-sticky;position:sticky;height:5px;top:70px;background-color:#007acc;z-index:500;}
+/* sc-component-id: social-channel-list__StyledSocialChannels-sc-16w9pwh-0 */
+.YZAaE{list-style-type:none;margin:0;padding:0;}
+/* sc-component-id: social-channel-list__StyledSocialChannel-sc-16w9pwh-1 */
+.hLhzMS{display:inline-block;margin:0 10px;font-size:1.6em;opacity:.7;-webkit-transition:opacity .5s;transition:opacity .5s;} .hLhzMS:hover{opacity:1;}
+/* sc-component-id: avatar__StyledAvatar-sc-195dx6n-0 */
+.jrMnVP{max-width:55px;border-radius:100%;}
+/* sc-component-id: bio__StyledBio-sc-19adui4-0 */
+.iHGPyz{margin:auto;text-align:center;width:100%;}
+/* sc-component-id: bio__AuthorDescription-sc-19adui4-1 */
+.lbetsi{margin:10px 0 13px;} .lbetsi a{color:#000;-webkit-text-decoration:underline;text-decoration:underline;}
+/* sc-component-id: bio__AuthorName-sc-19adui4-2 */
+.lfACiL{margin:10px;}
+/* sc-component-id: comments__DisqusWrapper-sc-1v0by87-0 */
+.gTEUyD{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;border-bottom:1px #e5eff5 solid;padding-top:40px;} @media (max-width:1300px){.gTEUyD{padding:0 20px;}}
+/* sc-component-id: post__PostContainer-sc-h8gzap-0 */
+.gINVKO{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;padding:0 !important;} @media (max-width:1300px){.gINVKO{padding:0 20px;}}
+/* sc-component-id: post__LeftSidebar-sc-h8gzap-1 */
+.vNDEa{min-width:255px;max-width:225px;-webkit-transition:opacity .5s,z-index .5s;transition:opacity .5s,z-index .5s;} @media (max-width:1300px){.vNDEa{position:fixed;opacity:0;z-index:-1;background-color:#fff;width:100% !important;max-width:100%;padding:0 20px;margin-top:-5px;height:calc(100vh - 70px);}}
+/* sc-component-id: post__PostContent-sc-h8gzap-2 */
+.inPukj{margin-top:-5px;border-right:1px #e5eff5 solid;border-left:1px #e5eff5 solid;background-color:#fff;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.1);z-index:10;width:1035px;max-width:100%;} .inPukj li > a,.inPukj p > a{color:#a4cbb8;border-bottom:2px #a4cbb8 solid;} .inPukj pre{margin:30px 0;} .inPukj blockquote{border-left:4px #a4cbb8 solid;background-color:#fafafa;margin:30px 0;padding:5px 20px;border-radius:.3em;} .inPukj h3::before,.inPukj h4::before,.inPukj h5::before,.inPukj h6::before{display:block;content:" ";height:90px;margin-top:-90px;visibility:hidden;} .inPukj h2{border-top:1px solid #ececec;margin-top:44px;padding-top:40px;line-height:1.2;} .inPukj code[class*="language-text"]{padding:5px;} .inPukj p > img{max-width:100%;border-radius:.3em;margin:30px 0;} .inPukj hr{border-top:1px solid #ececec;border-bottom:0;margin-top:44px;margin-bottom:40px;} .inPukj .gatsby-resp-image-link{margin:30px 0;max-width:100%;} .inPukj .gatsby-resp-image-link .gatsby-resp-image-image{border-radius:.3em;}
+/* sc-component-id: post__TocWrapper-sc-h8gzap-3 */
+.gkyoqc{position:-webkit-sticky;position:sticky;top:70px;padding:40px 30px 40px 0;}
+/* sc-component-id: post__PostHeader-sc-h8gzap-4 */
+.ihzMDK{padding:40px;} @media (max-width:576px){.ihzMDK{padding:20px;}}
+/* sc-component-id: post__FeaturedImage-sc-h8gzap-5 */
+.xRPUr{border-radius:0;} @media (max-width:1300px){.xRPUr{margin-left:-1px;margin-right:-1px;}}
+/* sc-component-id: post__StyledPost-sc-h8gzap-6 */
+.bKAqcy{padding:40px;} @media (max-width:576px){.bKAqcy{padding:20px;}}
+/* sc-component-id: post__PostMeta-sc-h8gzap-7 */
+.cxFkWP{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;opacity:.8;font-size:.9em;}
+/* sc-component-id: post__PostTitle-sc-h8gzap-8 */
+.ccWeoH{margin:0;padding:0;}
+/* sc-component-id: post__PostFooter-sc-h8gzap-9 */
+.cYqZmU{background-color:#fafafa;font-size:.8em;color:#666;padding:40px;line-height:1em;} .cYqZmU p{margin:5px 0;}
+/* sc-component-id: post__FooterTagLink-sc-h8gzap-10 */
+.bICWKm{color:#000 !important;-webkit-text-decoration:none;text-decoration:none;border-bottom:0 !important;}
+/* sc-component-id: post__PostAddition-sc-h8gzap-11 */
+.ghlSja{background-color:#fff;border-top:1px #e5eff5 solid;border-bottom:1px #e5eff5 solid;z-index:700;position:relative;padding:40px;}
+/* sc-component-id: post__PostAdditionContent-sc-h8gzap-12 */
+.jAnmWt{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;} @media (max-width:1300px){.jAnmWt{padding:0 20px;}}
+/* sc-component-id: post__BioWrapper-sc-h8gzap-13 */
+.fZmyke{width:50%;margin:auto;} @media (max-width:576px){.fZmyke{width:100%;}}
+/* sc-component-id: post__ToggleTocButton-sc-h8gzap-14 */
+.knvKPj{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;right:20px;bottom:20px;border-radius:100%;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.1);border:0;z-index:5000;width:50px;height:50px;background-color:#20232a;color:#fff;outline:none;} @media (min-width:1300px){.knvKPj{display:none;}}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=18bb4c32732ba872be7ef14a4b0e6d7f" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#a4cbb8"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=18bb4c32732ba872be7ef14a4b0e6d7f"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml"/><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link as="script" rel="preload" href="/webpack-runtime-628aac70ca5272bd73c8.js"/><link as="script" rel="preload" href="/framework-a45383fedbea7a016e3a.js"/><link as="script" rel="preload" href="/app-5251f8f8e3115909a188.js"/><link as="script" rel="preload" href="/styles-f3e9059f8c2a75df70f2.js"/><link as="script" rel="preload" href="/1bfc9850-f85e4d721a9ee2d34e63.js"/><link as="script" rel="preload" href="/commons-cac63ef3c31e1464d42c.js"/><link as="script" rel="preload" href="/component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-post-tsx-54a5204f6e2e9a1fd332.js"/><link as="fetch" rel="preload" href="/page-data/hoisting/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1116962356.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1568356344.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2275848304.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/545095672.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/58735974.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="style__NavContainer-sc-1ck1w82-0 bzOPpS"><div class="common__Container-sc-1d5kp8-0 style__Nav-sc-1ck1w82-1 kHKWRw"><a class="logo__HomeLink-sc-1e43uzs-1 bhqfWL" href="/"><div class="logo__LogoImage-sc-1e43uzs-0 gOiyKu gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:30px;height:30px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAAE6klEQVQ4y2WUa0xUVxDHDyslyHOfwOIH0ViTapN+apu01TSpNRFUINpKq/IopW5xqS8UK8oSYUHrUhZqhSqFuICCsGaTrRoQNa1AFYkWNEXAAi6ggIBSoezrnn/PuQLadJKTe3Nm5jePMxkyPDxMenp6SHNzswdhAoBYrdalz549M5SXl/dGR0dh8eLFVK1W0/Xr1qHcZLI9f/68oL6+fhm35dLa2irp7+8n4+PjRITdu3dPUlRUJMK6u7t17GuvqamBZN5r3IPyOB4ST/Hfa74PTp82gVLqYr65HFhdXU06OztFKGlsbPQwGAz83nNoaMjCDOF2u7F8+ZvOJcFSYfNHbyMp4n26be1KGrv6Xby1KESQy2XOx48fgwvzqV+1apV3RUUFaWlp8RCz4ocpqgRB4DaOgYFBYdnrYcjXRNKGo1p6vTgdTSd1aD7xLTVnxNF33liIhitXubGDBx8ZGbHOlk9YP3jZGq5gQCdT0Pb2dsRGrKDHNBtQlBqHuh8zcK0kB+eP7cPZ9HjsjP6Ams21PDh1uVxO7tvX15dqt9sJMRqN0snJyQGuZUoxxY6ubnrwi0gc2rIGuzaFozJzO37JS8O+zWuRlRiFwuRIWM/XUG7rdDpFn6mpqVHWy2DCyEkMJDaZ8oj2f+jFUiPyd8bAdCAOpw8l43y2FnV5u1FxSIuqw8mozUpCVc5OPO1/IEIFwe3iWdpstl1kdHTUIl663S5egmPqb1qcEIEC7SdoLMlAi+koajM1uJy/F3fOFaLdfBwXjn2D2rQYDLQ3cSB1u1xuzhgbG7tC2LzZXkQRuEKMWFdaiOzY1bhy/ACaTmXjeMqnOHswETfKcnH7zPew6LfBkv01pibGxT6yZEQ/xnpKJiYmXLNAfvi/fXoS5wp0qM5IRF3BPpRtZ8CUGNSxLBuL9sN8JAUDnW14xY+3jLJ+4j9ALi8qB4YHH+LntFjU6BJxZvsmmFM+w6XvtDBnxuJazSnMtOn/wFdLnlWKI8QG/CedFkfiP4Y1bw+ul+lRpUtA9pYP8eet6yKQtYjZvaxMLHnuUQTBxRUOh4M/NrhFiS4ZmTHv4WhSOIxsVPK3rUFZajTGBntFILedSeLlo8yODQfyBs8cZOlzUJCVhnPpn8O0dwNqD8fhar4GF37Yj8LCQsyIaMtHbm5s9Hq9dHp6Whxslq1gsViwdetWOt97Pk4UF+PWpbOw6hNQn6fB76Zc/NpQh9DQBfjqyyTacPkynjx5Ig42Y4xWVlYGE7aOSGlpqSYhPgFLlix1env7UG8G8/HxoykpWtzvuo9rlUZcNKbiQUcbTpaUQCGXUy8vL/j7+9OwsDBnVGQU8gyG1NycXDK3HJhUBQbKoFCoHGr1AsHHxx8bN26kd1pv0BtNv+Gvrg70dN+ne/fspr6+vizLUEGpVDqkUjkkEs+Xy4GJuFjb73Z4ymRyi0oVjJCQUAQESJ0rVqwUHnR14e4ft+mjR0N0sL8fCfHxLJivU60OhVIZxI6qPmLteu85FoOQwECpZJ6nJ9mxI53I5UpdcLDazjLFwoWL0HanjfY/tLH+jmN4eISGh0ewUqUICgpxyWQKccH6+flzjoT5Eg4gAQGB/FLMlGVIFArlUhbdwKC9ZaVl6Gbbp7fvIb15s4UvXpuff0CBShW0jEHFtKRSGYMpmJ+K/AuDpSHWNCuuQwAAAABJRU5ErkJggg==" alt="Long Nguyen&#x27;s Blog" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/18bb4c32732ba872be7ef14a4b0e6d7f/91664/logo.png 1x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/ad39b/logo.png 1.5x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/183c2/logo.png 2x" /><img loading="lazy" width="30" height="30" srcset="/static/18bb4c32732ba872be7ef14a4b0e6d7f/91664/logo.png 1x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/ad39b/logo.png 1.5x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/183c2/logo.png 2x" src="/static/18bb4c32732ba872be7ef14a4b0e6d7f/91664/logo.png" alt="Long Nguyen's Blog" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></a><div class="style__NavWrapper-sc-1ck1w82-2 jLOYBk"><ul class="style__NavMenu-sc-1ck1w82-3 fVqyTA"><li class="style__NavMenuItem-sc-1ck1w82-4 gWrDHi"><a class="style__NavLink-sc-1ck1w82-5 MQpwo" href="/">Home</a></li><li class="style__NavMenuItem-sc-1ck1w82-4 gWrDHi"><a class="style__NavLink-sc-1ck1w82-5 MQpwo" href="/about-me">About Me</a></li></ul><div class="style__SearchContainer-sc-1ck1w82-6 llwmof"><ul class="style__NavMenu-sc-1ck1w82-3 cROOCp"><li class="style__NavMenuItem-sc-1ck1w82-4 gWrDHi"><button role="button" aria-label="Toggle search" class="style__ToggleSearchButton-sc-1ck1w82-7 fYiJFa"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></button></li></ul></div></div></div></div><main><div style="width:0%" color="#007acc" class="reading-progress__ReadingProgressBar-sc-vxjjnv-0 JoeLU"></div><div class="common__Container-sc-1d5kp8-0 post__PostContainer-sc-h8gzap-0 gINVKO"><div class="post__LeftSidebar-sc-h8gzap-1 vNDEa"><div class="post__TocWrapper-sc-h8gzap-3 gkyoqc"><nav class="toc__StyledNav-sc-1hwup8p-0 lhFcmu toc"></nav></div></div><button role="button" aria-label="Toggle table of contents" class="post__ToggleTocButton-sc-h8gzap-14 knvKPj"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M432 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></button><div class="post__PostContent-sc-h8gzap-2 inPukj"><article class="post"><header class="post__PostHeader-sc-h8gzap-4 ihzMDK"><section class="post__PostMeta-sc-h8gzap-7 cxFkWP"><a href="/tag/javascript">JavaScript</a><time dateTime="2024-06-03T00:00:00.000Z">03 June, 2024</time></section><h1 class="post__PostTitle-sc-h8gzap-8 ccWeoH">Hoisting</h1></header><div class="post__FeaturedImage-sc-h8gzap-5 xRPUr gatsby-image-wrapper" style="position:relative;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:66.5%"></div><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAgP/xAAWAQEBAQAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAXFdozVA4KP/xAAYEAADAQEAAAAAAAAAAAAAAAAAAhEBEv/aAAgBAQABBQJVgy9LqthCEh//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFX/8QAFxAAAwEAAAAAAAAAAAAAAAAAACAhQf/aAAgBAQAGPwKGkqf/xAAaEAACAwEBAAAAAAAAAAAAAAAAAREhMVFh/9oACAEBAAE/Id7OPRzE6cGkUECuuRJhH//aAAwDAQACAAMAAAAQGN//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAXEQEAAwAAAAAAAAAAAAAAAAABEBEh/9oACAECAQE/EKRyH//EAB0QAQADAAIDAQAAAAAAAAAAAAEAESExYUFRccH/2gAIAQEAAT8QKmmVFfUybMba98RTR4HI7cl+lIaCW7T9hSAW2/Z//9k=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/ceee1d12d3acf6ff04311d7dcc1bc789/8850c/cover.jpg 200w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/da113/cover.jpg 400w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/f2cbb/cover.jpg 800w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/c26c2/cover.jpg 1200w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/9352a/cover.jpg 1600w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/7700f/cover.jpg 6240w" sizes="(max-width: 800px) 100vw, 800px" /><img loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="/static/ceee1d12d3acf6ff04311d7dcc1bc789/8850c/cover.jpg 200w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/da113/cover.jpg 400w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/f2cbb/cover.jpg 800w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/c26c2/cover.jpg 1200w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/9352a/cover.jpg 1600w,
+/static/ceee1d12d3acf6ff04311d7dcc1bc789/7700f/cover.jpg 6240w" src="/static/ceee1d12d3acf6ff04311d7dcc1bc789/f2cbb/cover.jpg" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><section class="post__StyledPost-sc-h8gzap-6 bKAqcy post"><h2 id="hoisting" style="position:relative;"><a href="#hoisting" aria-label="hoisting permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hoisting</h2>
+<p>"Hoisting là gì?" là một câu hỏi thường gặp khi chúng ta đi phỏng vấn. Hãy cùng khảo sát
+ví dụ bên dưới (Ví dụ 1):</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">b();
+
+function b() {
+    console.log('Called b!');
+}
+
+Output: Called b! </code></pre></div>
+<p>Mặc dù ta gọi hàm b trước khi nó được khai báo nhưng chương trình vẫn chạy bình thường mà không báo lỗi</p>
+<p>Tiếp tục một ví dụ khác (Ví dụ 2):</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">console.log(a);
+
+var a = 'Hello World!';
+
+Output: undefined</code></pre></div>
+<p>Ta có thể truy xuất biến a trước khi nó được khai báo.<br>
+<strong>Hoisting:</strong> Là bởi vì cơ chế hoạt động của JavaScript mà ta có thể truy xuất biến hoặc gọi hàm trước khi chúng được khai báo.  </p>
+<h2 id="giải-thích-cơ-chế-hoạt-động" style="position:relative;"><a href="#gi%E1%BA%A3i-th%C3%ADch-c%C6%A1-ch%E1%BA%BF-ho%E1%BA%A1t-%C4%91%E1%BB%99ng" aria-label="giải thích cơ chế hoạt động permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Giải thích cơ chế hoạt động</h2>
+<p>Như bài trước mình có đề cập, js engine sẽ tạo ra execution context khi một nhóm lệnh được thực thi (có thể là một hàm được gọi),
+mỗi execution context sẽ trải qua hai giai đoạn: creation phase và execution phase.<br>
+<strong>Creation phase:</strong> Trước khi code được thực thi js engine sẽ duyệt qua các khai báo biến, hàm và thiểt lập vùng nhớ cho chúng. Đối với
+biến, js engine sẽ gán cho một giá trị đặc biệt <em>undefined</em>.<br>
+<strong>Execution phase:</strong> Giai đoạn này mới là giai đoạn thực thi từng lệnh một. Và lúc này hàm/ biến đã được chuẩn bị sẵn trước đó có thể
+được thực thi bình thuờng mà không bị lỗi gì cả.<br>
+Đọc đến đây có lẽ bạn đã có thể giải thích hai ví dụ trên một cách dễ dàng rồi phải không.<br>
+Ok bây giờ bạn hãy thử đoán kết quả của ví dụ sau nhé:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">console.log(a);
+
+Output: ?</code></pre></div>
+<p>=> Chương trình sẽ lỗi bởi vì tại execution phase js engine không tìm thấy khai báo của biến a trong bộ nhớ. </p>
+<p><strong>Good practice:</strong> Undefined là một giá trị/từ khoá đặc biệt của js engine thế nên chúng ta không nên sử dụng giá trị này để gán cho biến
+trong chương trình, điều này sẽ có ích cho việc debug lỗi, nếu ta dùng undefined bừa bãi sẽ không thể phân biệt được giá trị của biến bị
+undefined là do chưa được gán giá trị hay do chính chúng ta đã gán. </p>
+<h2 id="tài-liệu-tham-khảo" style="position:relative;"><a href="#t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o" aria-label="tài liệu tham khảo permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tài liệu tham khảo</h2>
+<ol>
+<li>Khoá học js chuyên sâu - Tony Alicea trên <a href="https://www.udemy.com/understand-javascript/">Udemy</a></li>
+</ol></section><footer class="post__PostFooter-sc-h8gzap-9 cYqZmU"><p>Published under <span><a class="post__FooterTagLink-sc-h8gzap-10 bICWKm" href="/tag/javascript">JavaScript</a></span> on <time dateTime="2024-06-03T00:00:00.000Z">03 June, 2024</time>.</p></footer></article></div></div><section class="post__PostAddition-sc-h8gzap-11 ghlSja"><div class="common__Container-sc-1d5kp8-0 post__PostAdditionContent-sc-h8gzap-12 jAnmWt"><div class="post__BioWrapper-sc-h8gzap-13 fZmyke"><section class="bio__StyledBio-sc-19adui4-0 iHGPyz"><div class="avatar__StyledAvatar-sc-195dx6n-0 jrMnVP gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:55px;height:55px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAAE6klEQVQ4y2WUa0xUVxDHDyslyHOfwOIH0ViTapN+apu01TSpNRFUINpKq/IopW5xqS8UK8oSYUHrUhZqhSqFuICCsGaTrRoQNa1AFYkWNEXAAi6ggIBSoezrnn/PuQLadJKTe3Nm5jePMxkyPDxMenp6SHNzswdhAoBYrdalz549M5SXl/dGR0dh8eLFVK1W0/Xr1qHcZLI9f/68oL6+fhm35dLa2irp7+8n4+PjRITdu3dPUlRUJMK6u7t17GuvqamBZN5r3IPyOB4ST/Hfa74PTp82gVLqYr65HFhdXU06OztFKGlsbPQwGAz83nNoaMjCDOF2u7F8+ZvOJcFSYfNHbyMp4n26be1KGrv6Xby1KESQy2XOx48fgwvzqV+1apV3RUUFaWlp8RCz4ocpqgRB4DaOgYFBYdnrYcjXRNKGo1p6vTgdTSd1aD7xLTVnxNF33liIhitXubGDBx8ZGbHOlk9YP3jZGq5gQCdT0Pb2dsRGrKDHNBtQlBqHuh8zcK0kB+eP7cPZ9HjsjP6Ams21PDh1uVxO7tvX15dqt9sJMRqN0snJyQGuZUoxxY6ubnrwi0gc2rIGuzaFozJzO37JS8O+zWuRlRiFwuRIWM/XUG7rdDpFn6mpqVHWy2DCyEkMJDaZ8oj2f+jFUiPyd8bAdCAOpw8l43y2FnV5u1FxSIuqw8mozUpCVc5OPO1/IEIFwe3iWdpstl1kdHTUIl663S5egmPqb1qcEIEC7SdoLMlAi+koajM1uJy/F3fOFaLdfBwXjn2D2rQYDLQ3cSB1u1xuzhgbG7tC2LzZXkQRuEKMWFdaiOzY1bhy/ACaTmXjeMqnOHswETfKcnH7zPew6LfBkv01pibGxT6yZEQ/xnpKJiYmXLNAfvi/fXoS5wp0qM5IRF3BPpRtZ8CUGNSxLBuL9sN8JAUDnW14xY+3jLJ+4j9ALi8qB4YHH+LntFjU6BJxZvsmmFM+w6XvtDBnxuJazSnMtOn/wFdLnlWKI8QG/CedFkfiP4Y1bw+ul+lRpUtA9pYP8eet6yKQtYjZvaxMLHnuUQTBxRUOh4M/NrhFiS4ZmTHv4WhSOIxsVPK3rUFZajTGBntFILedSeLlo8yODQfyBs8cZOlzUJCVhnPpn8O0dwNqD8fhar4GF37Yj8LCQsyIaMtHbm5s9Hq9dHp6Whxslq1gsViwdetWOt97Pk4UF+PWpbOw6hNQn6fB76Zc/NpQh9DQBfjqyyTacPkynjx5Ig42Y4xWVlYGE7aOSGlpqSYhPgFLlix1env7UG8G8/HxoykpWtzvuo9rlUZcNKbiQUcbTpaUQCGXUy8vL/j7+9OwsDBnVGQU8gyG1NycXDK3HJhUBQbKoFCoHGr1AsHHxx8bN26kd1pv0BtNv+Gvrg70dN+ne/fspr6+vizLUEGpVDqkUjkkEs+Xy4GJuFjb73Z4ymRyi0oVjJCQUAQESJ0rVqwUHnR14e4ft+mjR0N0sL8fCfHxLJivU60OhVIZxI6qPmLteu85FoOQwECpZJ6nJ9mxI53I5UpdcLDazjLFwoWL0HanjfY/tLH+jmN4eISGh0ewUqUICgpxyWQKccH6+flzjoT5Eg4gAQGB/FLMlGVIFArlUhbdwKC9ZaVl6Gbbp7fvIb15s4UvXpuff0CBShW0jEHFtKRSGYMpmJ+K/AuDpSHWNCuuQwAAAABJRU5ErkJggg==" alt="Long Nguyễn" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/18bb4c32732ba872be7ef14a4b0e6d7f/eaa90/logo.png 1x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/4747d/logo.png 1.5x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/3b7ca/logo.png 2x" /><img loading="lazy" width="55" height="55" srcset="/static/18bb4c32732ba872be7ef14a4b0e6d7f/eaa90/logo.png 1x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/4747d/logo.png 1.5x,
+/static/18bb4c32732ba872be7ef14a4b0e6d7f/3b7ca/logo.png 2x" src="/static/18bb4c32732ba872be7ef14a4b0e6d7f/eaa90/logo.png" alt="Long Nguyễn" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><h3 class="bio__AuthorName-sc-19adui4-2 lfACiL">Long Nguyễn</h3><p class="bio__AuthorDescription-sc-19adui4-1 lbetsi"><strong>Long Nguyễn</strong> là tui, một software developer ất ơ. Tui viết blog này nhằm chia sẻ kinh nghiệm,
+trải nghiệm và kiến thức về lập trình. Mong muốn đóng góp một phần nhỏ nhoi cho cộng đồng IT Việt Nam.</p><ul class="social-channel-list__StyledSocialChannels-sc-16w9pwh-0 YZAaE"><li class="social-channel-list__StyledSocialChannel-sc-16w9pwh-1 hLhzMS"><a href="https://www.facebook.com/LoveguitarNguyen" target="_blank" rel="noopener" aria-label="facebook"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg></a></li><li class="social-channel-list__StyledSocialChannel-sc-16w9pwh-1 hLhzMS"><a href="https://linkedin.com/in/nguyen-duy-long-6b4a23150" target="_blank" rel="noopener" aria-label="linkedin"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a></li><li class="social-channel-list__StyledSocialChannel-sc-16w9pwh-1 hLhzMS"><a href="https://github.com/longnguyenduy233" target="_blank" rel="noopener" aria-label="github"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a></li><li class="social-channel-list__StyledSocialChannel-sc-16w9pwh-1 hLhzMS"><a href="https://long.techtop.dev/" target="_blank" rel="noopener" aria-label="twitch"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M391.17,103.47H352.54v109.7h38.63ZM285,103H246.37V212.75H285ZM120.83,0,24.31,91.42V420.58H140.14V512l96.53-91.42h77.25L487.69,256V0ZM449.07,237.75l-77.22,73.12H294.61l-67.6,64v-64H140.14V36.58H449.07Z"></path></svg></a></li></ul></section></div></div></section><div class="common__Container-sc-1d5kp8-0 comments__DisqusWrapper-sc-1v0by87-0 gTEUyD"><div id="disqus_thread"></div></div></main><footer class="style__StyledFooter-sc-1oqvjzu-0 gpDhwt"><div class="common__Container-sc-1d5kp8-0 style__FooterContainer-sc-1oqvjzu-1 ctpkkx"><nav class="style__StyledNav-sc-1oqvjzu-4 etXHUJ"><ul><li><a class="style__FooterMenuLink-sc-1oqvjzu-6 dLTgSL" href="/about-me">About Me</a></li><li><a href="/sitemap.xml" rel="noopener noreferrer" class="style__FooterMenuItem-sc-1oqvjzu-5 fCazFg">Sitemap</a></li></ul></nav><div><p class="style__Copyright-sc-1oqvjzu-2 cXOFUh"><strong>Long Nguyen&#x27;s Blog</strong> © <!-- -->2024</p><p class="style__DesignBy-sc-1oqvjzu-3 bqPxdl">Written by<!-- --> <a href="https://long.techtop.dev" target="_blank" rel="noopener">Long Nguyen</a></p></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4MGTR17CB3"></script><script>
+      window.excludeGtagPaths=[/^(?:\/preview\/(?:(?!(?:\/|^)\.).)*?)$/,/^(?:\/do\-not\-track\/me\/too\/)$/];
+      function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='G-4MGTR17CB3',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
+      if(!(navigator.doNotTrack == "1" || window.doNotTrack == "1")) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer && window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-4MGTR17CB3', {"optimize_id":"OPT_CONTAINER_ID","anonymize_ip":true,"cookie_expires":0,"send_page_view":false});
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/hoisting";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-a2a9477fad6702951bd1.js"],"app":["/app-5251f8f8e3115909a188.js"],"component---node-modules-nehalist-gatsby-theme-nehalem-src-pages-404-tsx":["/component---node-modules-nehalist-gatsby-theme-nehalem-src-pages-404-tsx-4d664e5f4b35ec12bb4e.js"],"component---node-modules-nehalist-gatsby-theme-nehalem-src-pages-archive-tsx":["/component---node-modules-nehalist-gatsby-theme-nehalem-src-pages-archive-tsx-c30ebb77dc2c43c7dd5a.js"],"component---node-modules-nehalist-gatsby-theme-nehalem-src-pages-tags-tsx":["/component---node-modules-nehalist-gatsby-theme-nehalem-src-pages-tags-tsx-889d9e66658d4462ba76.js"],"component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-page-tsx":["/component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-page-tsx-4379057d61b741e69bfe.js"],"component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-post-tsx":["/component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-post-tsx-54a5204f6e2e9a1fd332.js"],"component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-posts-tsx":["/component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-posts-tsx-6e08fa819c0b45ec6447.js"],"component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-tag-tsx":["/component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-tag-tsx-74a1e20ffa132a56b4e5.js"]};/*]]>*/</script><script src="/polyfill-a2a9477fad6702951bd1.js" nomodule=""></script><script src="/component---node-modules-nehalist-gatsby-theme-nehalem-src-templates-post-tsx-54a5204f6e2e9a1fd332.js" async=""></script><script src="/commons-cac63ef3c31e1464d42c.js" async=""></script><script src="/1bfc9850-f85e4d721a9ee2d34e63.js" async=""></script><script src="/styles-f3e9059f8c2a75df70f2.js" async=""></script><script src="/app-5251f8f8e3115909a188.js" async=""></script><script src="/framework-a45383fedbea7a016e3a.js" async=""></script><script src="/webpack-runtime-628aac70ca5272bd73c8.js" async=""></script></body></html>
