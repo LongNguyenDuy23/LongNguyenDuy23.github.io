@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Long & %TOPICS%]]></description><link>https://blog.techtop.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 15 Dec 2024 09:11:04 GMT</lastBuildDate><item><title><![CDATA[Linear Regression]]></title><description><![CDATA[Linear regression (hồi quy tuyến tính) là mô hình thuật toán được xếp vào loại bài toán dự đoán số (Numeric Prediction). Và là một trong những thuật toán căn bản nhất, là tiền đề để chúng ta có thể đi tiếp được các thuật toán nâng cao hơn như mạng nơ-ron nhân tạo.]]></description><link>https://blog.techtop.dev/linear-regression</link><guid isPermaLink="false">https://blog.techtop.dev/linear-regression</guid><pubDate>Tue, 10 Dec 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;sơ-lược-về-machine-learning&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#s%C6%A1-l%C6%B0%E1%BB%A3c-v%E1%BB%81-machine-learning&quot; aria-label=&quot;sơ lược về machine learning permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sơ lược về machine learning&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[Long & %TOPICS%]]></description><link>https://blog.techtop.dev</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Mar 2025 03:16:31 GMT</lastBuildDate><item><title><![CDATA[Module Augmentation]]></title><description><![CDATA[Module Augmentation giúp chúng ta mở rộng chức năng của một thư viện (3rd party libraries) cái mà chúng ta không có quyền truy cập để chỉnh sửa trực tiếp.]]></description><link>https://blog.techtop.dev/module-augmentation</link><guid isPermaLink="false">https://blog.techtop.dev/module-augmentation</guid><pubDate>Tue, 18 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;introduction&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Dạo gần đây mình chủ yếu làm việc với leaflet, một thư viện js về bản đồ, và mình luôn có nhu cầu mở rộng các chức năng của thư viện này ra.
+Ví dụ mình muốn thêm thuộc tính và phương thức mới vào một &lt;strong&gt;base&lt;/strong&gt; class có sẵn của thư viện leaflet. Và vì là base class
+(class này đã được sử dụng ở nhiều nơi và ta cũng không có quyền truy cập để chỉnh sửa trực tiếp) nên ta không thể giải quyết được bằng
+phương cách kế thừa thông qua từ khóa extends. Và chức năng mình gọi nôm na là tăng cường module (module augmentation) của TypeScript
+là cứu cánh của mình lúc ấy.
+Trước khi đi sâu vào module augmentation mình sẽ nói về 1 chức năng cơ bản hơn của TypeScript đó chính là declaration merging.&lt;/p&gt;
+&lt;h2 id=&quot;declaration-merging&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declaration-merging&quot; aria-label=&quot;declaration merging permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Declaration Merging&lt;/h2&gt;
+&lt;p&gt;TypeScript cho phép ta merge interface với interface:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;interface Box {
+  height: number;
+  width: number;
+}
+interface Box {
+  scale: number;
+}
+let box: Box = { height: 5, width: 6, scale: 10 };&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ngoài ra ta còn có thể merge interface với class:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Food {
+  cheese: string;
+}
+interface Food {
+  bacon: string;
+}
+const food  = new Food();
+food.bacon = &quot;nice bacon&quot;;
+food.cheese = &quot;sweet cheese&quot;;
+console.log(food); // {bacon: &quot;nice bacon&quot;, cheese: &quot;sweet cheese&quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tuy nhiên trong trường hợp interface của ta có chứa phương thức thì sẽ ra sao:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Food {
+  cheese: string;
+}
+interface Food {
+  bacon: string;
+  bake(item: string);
+}
+const food  = new Food();
+food.bake(&quot;cake&quot;); // Error: food.bake is not a function&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Bởi vì interface của ta chỉ có thể chứa khai báo cho phương thức chứ chưa có phần implementation của phương thức nên ta chưa thể sử dụng nó. Ta có thể implement thông qua
+prototype của js như sau:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Food.prototype.bake = (item) =&gt; console.log(item);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;module-augmentation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#module-augmentation&quot; aria-label=&quot;module augmentation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Module Augmentation&lt;/h2&gt;
+&lt;p&gt;Module Augmentation giúp chúng ta mở rộng chức năng của một thư viện (3rd party libraries) cái mà chúng ta không có quyền truy cập để chỉnh sửa trực tiếp.
+Quay trở lại với vấn đề với leaflet mà mình đã đề cập ở đầu bài. Mình sẽ sử dụng chức năng module augmentation để thêm thuộc tính zIndex và phương thức
+setZIndex vào class Path của thư viện leaflet như sau:&lt;br&gt;
+Đầu tiên ta import class Path từ thư viện leaflet:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import { Path } from &apos;leaflet&apos;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sau đó ta dùng từ khóa declare module với tên trùng với tên của leaflet module và interface với tên trùng với tên của class Path mà ta đang muốn mở rộng:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;declare module &apos;leaflet&apos; {
+  interface Path {
+    zIndex?: number;
+    setZIndex(zIndex: number): this;
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Và sau cùng là thêm phần implementation cho phương thức setZIndex của ta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Path.prototype.setZIndex = (zIndex) =&gt; console.log(zIndex);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Đến đây bạn đọc có thể sẽ thắc mắc tại sao ta không dùng class để merge cho dễ vì trong class ta có thể khai báo phương thức và cả phần implementation cho phương thức ấy.
+Lý do chính là TypeScript không cho phép ta merge giữa class với class. Tuy nhiên TypeScript vẫn có cung cấp cho ta 1 giải pháp mô phỏng việc này đó chính là mixins
+và đó cũng sẽ là chủ đề cho bài viết tiếp theo của mình.&lt;br&gt;
+Hãy cùng thảo luận bên dưới comment bạn nhé - Sound off on the comment...&lt;/p&gt;
+&lt;h2 id=&quot;tài-liệu-tham-khảo&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o&quot; aria-label=&quot;tài liệu tham khảo permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Tài liệu tham khảo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/declaration-merging.html&quot;&gt;Declaration Merging - TypeScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/typescript-module-augmentation&quot;&gt;Module Augmentation in TypeScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Linear Regression]]></title><description><![CDATA[Linear regression (hồi quy tuyến tính) là mô hình thuật toán được xếp vào loại bài toán dự đoán số (Numeric Prediction). Và là một trong những thuật toán căn bản nhất, là tiền đề để chúng ta có thể đi tiếp được các thuật toán nâng cao hơn như mạng nơ-ron nhân tạo.]]></description><link>https://blog.techtop.dev/linear-regression</link><guid isPermaLink="false">https://blog.techtop.dev/linear-regression</guid><pubDate>Tue, 10 Dec 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;sơ-lược-về-machine-learning&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#s%C6%A1-l%C6%B0%E1%BB%A3c-v%E1%BB%81-machine-learning&quot; aria-label=&quot;sơ lược về machine learning permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sơ lược về machine learning&lt;/h2&gt;
 &lt;p&gt;Học máy (hay máy học) là 1 lĩnh vực thuộc trí tuệ nhân tạo, nghiên cứu và xây dựng các kỹ thuật để hệ thống học tự
 động từ dữ liệu nhằm giải quyết 1 vấn đề cụ thể nào đó.&lt;br&gt;
 Dựa vào tính chất của tập dữ liệu huấn luyện (training data) mà các nhà nghiên cứu thường phân các thuật toán của Machine learning
